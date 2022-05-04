@@ -392,6 +392,11 @@ public class Response {
 		for (Cookie cookie : cookies) {
 			httpHeaders.add(HttpHeaderNames.SET_COOKIE.toString(), ServerCookieEncoder.LAX.encode(cookie));
 		}
+
+		// Headers
+		for (Entry<String, String> entry : headers.entries()) {
+			httpHeaders.add(entry.getKey(), entry.getValue());
+		}
 	}
 	// -------------------------------------------------------------------------------------- build HttpResponse end
 
